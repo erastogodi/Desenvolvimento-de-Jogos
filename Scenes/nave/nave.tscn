@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxnyt8xp8nker"]
+
+[ext_resource type="Texture2D" uid="uid://bav1o5emxlgb8" path="res://assets/nave.png" id="1_butaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_butaj"]
+size = Vector2(143, 87)
+
+[node name="Nave" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.999996, -35)
+scale = Vector2(0.21870652, 0.17592588)
+texture = ExtResource("1_butaj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, -35.5)
+shape = SubResource("RectangleShape2D_butaj")
