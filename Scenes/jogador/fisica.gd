@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var base_speed: float = 150.0      # velocidade inicial (x)
 @export var accel_per_sec: float = 25.0    # aceleração por segundo
 @export var max_speed: float = 520.0       # limite da velocidade
-@export var jump_speed: float = -420.0     # pulo (negativo = para cima)
+@export var jump_speed: float = -450.0     # pulo (negativo = para cima)
 @export var fastfall_mult: float = 2.2     # multiplicador de gravidade no ar ao segurar ↓
 
 var gravity: float

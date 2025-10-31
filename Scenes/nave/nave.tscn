@@ -1,17 +1,99 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxnyt8xp8nker"]
+[gd_scene load_steps=17 format=3 uid="uid://bxnyt8xp8nker"]
 
 [ext_resource type="Texture2D" uid="uid://bav1o5emxlgb8" path="res://assets/nave.png" id="1_butaj"]
+[ext_resource type="Script" uid="uid://bt871s0xuytd2" path="res://Scenes/nave/nave.gd" id="1_lmsc8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_butaj"]
-size = Vector2(143, 87)
+[sub_resource type="Animation" id="Animation_qw4hr"]
+resource_name = "Ataque"
 
-[node name="Nave" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_butaj"]
+resource_name = "Inativa"
+
+[sub_resource type="Animation" id="Animation_lmsc8"]
+resource_name = "Patrulha"
+
+[sub_resource type="Animation" id="Animation_edtk6"]
+resource_name = "Recarga"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a1uq4"]
+_data = {
+&"Ataque": SubResource("Animation_qw4hr"),
+&"Inativa": SubResource("Animation_butaj"),
+&"Patrulha": SubResource("Animation_lmsc8"),
+&"Recarga": SubResource("Animation_edtk6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ga8es"]
+animation = &"Ataque"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mcevi"]
+animation = &"Inativa"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06vks"]
+animation = &"Recarga"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uavow"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1qnwi"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lmsc8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qw4hr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_edtk6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gjvmn"]
+states/Ataque/node = SubResource("AnimationNodeAnimation_ga8es")
+states/Ataque/position = Vector2(522, 80)
+states/End/position = Vector2(812, 86)
+states/Inativa/node = SubResource("AnimationNodeAnimation_mcevi")
+states/Inativa/position = Vector2(339, 188)
+states/Recarga/node = SubResource("AnimationNodeAnimation_06vks")
+states/Recarga/position = Vector2(669, 197)
+states/Start/position = Vector2(87, 188)
+transitions = ["Ataque", "Recarga", SubResource("AnimationNodeStateMachineTransition_uavow"), "Start", "Inativa", SubResource("AnimationNodeStateMachineTransition_1qnwi"), "Inativa", "Ataque", SubResource("AnimationNodeStateMachineTransition_lmsc8"), "Recarga", "Ataque", SubResource("AnimationNodeStateMachineTransition_qw4hr"), "Ataque", "End", SubResource("AnimationNodeStateMachineTransition_edtk6")]
+
+[node name="nave" type="Node2D"]
+z_index = 1
+position = Vector2(5, 15)
+script = ExtResource("1_lmsc8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9.999996, -35)
-scale = Vector2(0.21870652, 0.17592588)
+position = Vector2(-2.000001, -2)
+scale = Vector2(0.36600313, 0.19004631)
 texture = ExtResource("1_butaj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(13.5, -35.5)
-shape = SubResource("RectangleShape2D_butaj")
+[node name="Cone de visão" type="Area2D" parent="."]
+position = Vector2(-407, -62)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cone de visão"]
+z_index = 1
+position = Vector2(-1505.9999, -243)
+scale = Vector2(-0.0016727463, 5.142097)
+polygon = PackedVector2Array(-1068303.1, 121.545746, -1072487.9, -17.502586, -835153.56, -16.141273, -835153.56, 120.18443)
+
+[node name="Temporizador de disparo" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="Temporizador de recarga" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="Ponto de disparo" type="Marker2D" parent="."]
+position = Vector2(-136, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a1uq4")
+}
+speed_scale = 0.1
+
+[node name="Arvore de estados" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_gjvmn")
+anim_player = NodePath("../AnimationPlayer")
