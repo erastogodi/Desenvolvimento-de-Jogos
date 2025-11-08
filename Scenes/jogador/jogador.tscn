@@ -7,7 +7,7 @@
 radius = 53.0
 height = 114.0
 
-[node name="Jogador" type="CharacterBody2D"]
+[node name="Jogador" type="CharacterBody2D" groups=["jogador"]]
 script = ExtResource("1_1nevp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,5 +21,5 @@ position = Vector2(4, -3)
 shape = SubResource("CapsuleShape2D_lb2rk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(413, -152)
+position = Vector2(531, -60)
 position_smoothing_enabled = true

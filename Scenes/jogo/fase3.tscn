@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwbpgof3lfdvn"]
+[gd_scene load_steps=10 format=3 uid="uid://djtrvcsp0cdow"]
 
 [ext_resource type="PackedScene" uid="uid://cd2p8gqkldm8n" path="res://Scenes/jogador/jogador.tscn" id="1_7jbif"]
-[ext_resource type="PackedScene" uid="uid://dn6h13r2gqaus" path="res://Scenes/jogo/GravityZone.tscn" id="1_yywfo"]
 [ext_resource type="Texture2D" uid="uid://c30v4mfid4p8m" path="res://assets/piso.png" id="2_akodo"]
 [ext_resource type="PackedScene" uid="uid://bxnyt8xp8nker" path="res://Scenes/nave/nave.tscn" id="3_akodo"]
 [ext_resource type="PackedScene" uid="uid://bnnf7vttd84cp" path="res://Scenes/nave/missil.tscn" id="4_h5f1k"]
+[ext_resource type="PackedScene" uid="uid://dn6h13r2gqaus" path="res://Scenes/jogo/GravityZone.tscn" id="5_hfxcw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7jbif"]
 
@@ -19,13 +19,9 @@ size = Vector2(1280.05, 723.2516)
 
 [node name="Jogo" type="Node2D"]
 
-[node name="GravityZone" parent="." instance=ExtResource("1_yywfo")]
-z_index = -1
-position = Vector2(3029, 127)
-
 [node name="Plano de fundo" type="Sprite2D" parent="."]
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
-z_index = -2
+z_index = -1
 position = Vector2(10587.499, 333)
 scale = Vector2(16.546093, 0.93055564)
 texture = ExtResource("2_akodo")
@@ -89,7 +85,17 @@ position = Vector2(-323.91125, -561.512)
 scale = Vector2(0.008808396, 0.58922744)
 texture = ExtResource("2_akodo")
 
+[node name="Node" type="Node" parent="piso3/Piso 3"]
+
 [node name="Nave" parent="." groups=["jogador"] instance=ExtResource("3_akodo")]
 z_index = 10
 position = Vector2(4096, 424)
 cena_missil = ExtResource("4_h5f1k")
+
+[node name="GravityZone" parent="." instance=ExtResource("5_hfxcw")]
+z_index = -1
+position = Vector2(2986, 264)
+
+[node name="GravityZone2" parent="." instance=ExtResource("5_hfxcw")]
+z_index = -1
+position = Vector2(11880, 450)

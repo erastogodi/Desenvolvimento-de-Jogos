@@ -58,7 +58,7 @@ states/Recarga/position = Vector2(669, 197)
 states/Start/position = Vector2(87, 188)
 transitions = ["Ataque", "Recarga", SubResource("AnimationNodeStateMachineTransition_uavow"), "Start", "Inativa", SubResource("AnimationNodeStateMachineTransition_1qnwi"), "Inativa", "Ataque", SubResource("AnimationNodeStateMachineTransition_lmsc8"), "Recarga", "Ataque", SubResource("AnimationNodeStateMachineTransition_qw4hr"), "Ataque", "End", SubResource("AnimationNodeStateMachineTransition_edtk6")]
 
-[node name="nave" type="Node2D"]
+[node name="nave" type="Node2D" groups=["nave"]]
 z_index = 1
 position = Vector2(5, 15)
 script = ExtResource("1_lmsc8")
@@ -70,6 +70,7 @@ texture = ExtResource("1_butaj")
 
 [node name="Cone de visão" type="Area2D" parent="."]
 position = Vector2(-407, -62)
+collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cone de visão"]
 z_index = 1

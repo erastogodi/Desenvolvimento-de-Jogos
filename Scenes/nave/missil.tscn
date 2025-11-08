@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnnf7vttd84cp"]
 
-[ext_resource type="Script" uid="uid://du0x1563xkreu" path="res://Missil.gd" id="1_qkqwi"]
+[ext_resource type="Script" uid="uid://du0x1563xkreu" path="res://Scenes/nave/Missil.gd" id="1_qkqwi"]
 [ext_resource type="Texture2D" uid="uid://1aop2xenulmf" path="res://assets/projetil.png" id="2_hvvgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adlo7"]
 size = Vector2(62.625, 26)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["projetil"]]
 z_index = 15
 position = Vector2(115, 60)
+collision_layer = 4
 script = ExtResource("1_qkqwi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
