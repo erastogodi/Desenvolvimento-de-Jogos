@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://eui6nkq1kv42" path="res://Scenes/jogo/gravity_zone.gd" id="2_y032t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y032t"]
-size = Vector2(4994, 3525)
+size = Vector2(1994.5, 3546)
 
 [node name="GravityZone" type="Node2D"]
-z_index = -100
+z_index = -1
 position = Vector2(1, -1)
 
 [node name="GravityZone" type="Area2D" parent="."]
@@ -17,9 +17,12 @@ collision_mask = 7
 script = ExtResource("2_y032t")
 
 [node name="Sprite2D" type="Sprite2D" parent="GravityZone"]
-position = Vector2(-12, 0)
+z_index = -1
+position = Vector2(-35.000004, 39)
+scale = Vector2(0.39897504, 1.0156692)
 texture = ExtResource("1_uw8dw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityZone"]
-position = Vector2(-25, 0.5)
+z_index = -2
+position = Vector2(-28, 44)
 shape = SubResource("RectangleShape2D_y032t")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dopipi3ktoop7"]
+[gd_scene load_steps=9 format=3 uid="uid://dcciyg6cxaj31"]
 
 [ext_resource type="PackedScene" uid="uid://cd2p8gqkldm8n" path="res://Scenes/jogador/jogador.tscn" id="1_7jbif"]
 [ext_resource type="Texture2D" uid="uid://c30v4mfid4p8m" path="res://assets/piso.png" id="2_akodo"]

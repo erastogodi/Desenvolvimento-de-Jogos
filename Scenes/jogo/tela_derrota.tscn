@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://blrcecajqb72r"]
+
+[ext_resource type="Script" uid="uid://cn8joysqt412d" path="res://Scenes/jogo/tela_derrota.gd" id="1_4d217"]
+
+[node name="TelaDerrota" type="CanvasLayer"]
+layer = 1000
+script = ExtResource("1_4d217")
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.29411766)
+
+[node name="LabelTitulo" type="Label" parent="."]
+offset_left = 45.0
+offset_top = 181.0
+offset_right = 1166.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Você perdeu!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotaoReiniciar" type="Button" parent="."]
+offset_left = 82.0
+offset_top = 460.0
+offset_right = 515.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 32
+text = "Reiniciar fase"
+
+[node name="BotaoMenu" type="Button" parent="."]
+offset_left = 687.0
+offset_top = 460.0
+offset_right = 1120.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 32
+text = "Voltar ao menu"
+
+[node name="LabelSubtitulo" type="Label" parent="."]
+offset_left = 334.0
+offset_top = 307.0
+offset_right = 882.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Selecione a opção desejada"
+horizontal_alignment = 1

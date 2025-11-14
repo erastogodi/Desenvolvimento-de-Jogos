@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://chaxf320k02gc"]
+
+[ext_resource type="Script" uid="uid://cyjm1uil7c2u4" path="res://Scenes/jogo/area_vitoria.gd" id="1_k1p1t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1p13"]
+size = Vector2(282, 516)
+
+[node name="AreaVitoria" type="Area2D"]
+script = ExtResource("1_k1p1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_c1p13")
