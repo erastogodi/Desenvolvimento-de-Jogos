@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var tipo_evento := "derrota"
-
 func _ready():
+	monitoring = true
+	monitorable = true
 	connect("body_entered", _on_body_entered)
 
 func _on_body_entered(body):

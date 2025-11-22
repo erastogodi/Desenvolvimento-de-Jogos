@@ -10,4 +10,9 @@ func _reiniciar_fase():
 
 func _voltar_menu():
 	get_tree().call_group("gerenciador", "_limpar_tela")
-	get_tree().change_scene_to_file("res://Scenes/jogo/menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu/menu_principal.tscn")
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		return

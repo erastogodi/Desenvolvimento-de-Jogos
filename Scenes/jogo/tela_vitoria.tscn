@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://b5blb7h2luhwm"]
+[gd_scene load_steps=2 format=3 uid="uid://b5blb7h2luhwm"]
+
+[ext_resource type="Script" uid="uid://bwi8t6toabf0o" path="res://Scenes/jogo/tela_vitoria.gd" id="1_icd8h"]
 
 [node name="TelaVitoria" type="CanvasLayer"]
 layer = 1000
+script = ExtResource("1_icd8h")
 
 [node name="Fundo" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -16,39 +19,30 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.15686275)
 
 [node name="LabelTitulo" type="Label" parent="."]
-offset_left = 65.0
-offset_top = 131.0
-offset_right = 1186.0
-offset_bottom = 326.0
+offset_left = 51.0
+offset_top = 172.0
+offset_right = 1172.0
+offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
-text = "Você ganhou!
-"
+text = "Parabéns,"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BotaoAvancar" type="Button" parent="."]
-offset_left = 71.0
-offset_top = 437.0
-offset_right = 504.0
-offset_bottom = 565.0
-theme_override_font_sizes/font_size = 32
-text = "Avançar fase"
-
-[node name="BotaoMenu" type="Button" parent="."]
-offset_left = 747.0
-offset_top = 438.0
-offset_right = 1180.0
-offset_bottom = 566.0
-theme_override_font_sizes/font_size = 32
-text = "Voltar ao menu"
-
 [node name="LabelSubtitulo" type="Label" parent="."]
-offset_left = 356.0
-offset_top = 263.0
-offset_right = 904.0
-offset_bottom = 367.0
+offset_left = 344.0
+offset_top = 323.0
+offset_right = 892.0
+offset_bottom = 427.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Selecione a opção desejada"
+text = "você concluiu esta fase!"
 horizontal_alignment = 1
+
+[node name="Voltar" type="Button" parent="."]
+offset_left = 405.0
+offset_top = 419.0
+offset_right = 828.0
+offset_bottom = 509.0
+theme_override_font_sizes/font_size = 32
+text = "Voltar ao menu"

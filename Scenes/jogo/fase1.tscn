@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwbpgof3lfdvn"]
+[gd_scene load_steps=13 format=3 uid="uid://bwbpgof3lfdvn"]
 
+[ext_resource type="Script" uid="uid://wlvljbvthuag" path="res://Scenes/jogo/GameManager.gd" id="1_1tuww"]
 [ext_resource type="PackedScene" uid="uid://cd2p8gqkldm8n" path="res://Scenes/jogador/jogador.tscn" id="1_7jbif"]
 [ext_resource type="Texture2D" uid="uid://c30v4mfid4p8m" path="res://assets/piso.png" id="2_akodo"]
 [ext_resource type="PackedScene" uid="uid://bxnyt8xp8nker" path="res://Scenes/nave/nave.tscn" id="3_akodo"]
 [ext_resource type="PackedScene" uid="uid://bnnf7vttd84cp" path="res://Scenes/nave/missil.tscn" id="4_h5f1k"]
+[ext_resource type="PackedScene" uid="uid://dbqb1v5vdj1sk" path="res://Scenes/jogo/PauseManager.tscn" id="5_orh08"]
+[ext_resource type="PackedScene" uid="uid://d3yp0tvkp3orp" path="res://Scenes/jogo/area_derrota.tscn" id="6_drdfj"]
+[ext_resource type="PackedScene" uid="uid://chaxf320k02gc" path="res://Scenes/jogo/area_vitoria.tscn" id="7_iwl7l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7jbif"]
 
@@ -16,7 +20,20 @@ size = Vector2(161.1831, 726.2018)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yywfo"]
 size = Vector2(1280.05, 723.2516)
 
-[node name="Jogo" type="Node2D"]
+[node name="Jogo" type="Node2D" groups=["gerenciador"]]
+script = ExtResource("1_1tuww")
+
+[node name="AreaDerrota" parent="." groups=["gerenciador"] instance=ExtResource("6_drdfj")]
+position = Vector2(3698, 989)
+
+[node name="AreaDerrota" parent="AreaDerrota" instance=ExtResource("6_drdfj")]
+position = Vector2(6031, 4)
+
+[node name="AreaDerrota2" parent="." groups=["gerenciador"] instance=ExtResource("6_drdfj")]
+position = Vector2(6671, 966)
+
+[node name="AreaDerrota" parent="AreaDerrota2" instance=ExtResource("6_drdfj")]
+position = Vector2(6031, 4)
 
 [node name="Plano de fundo" type="Sprite2D" parent="."]
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
@@ -155,3 +172,8 @@ modulate = Color(0.59607846, 0.3254902, 0.10980392, 0.7411765)
 position = Vector2(8402, 47)
 scale = Vector2(0.5628082, 0.16662036)
 texture = ExtResource("2_akodo")
+
+[node name="PauseManager" parent="." instance=ExtResource("5_orh08")]
+
+[node name="AreaVitoria" parent="." groups=["gerenciador", "jogador", "nave", "pause_manager"] instance=ExtResource("7_iwl7l")]
+position = Vector2(19622, 7)

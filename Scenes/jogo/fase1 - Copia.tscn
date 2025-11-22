@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc5gj2g67wj4v"]
+[gd_scene load_steps=14 format=3 uid="uid://bc5gj2g67wj4v"]
 
 [ext_resource type="PackedScene" uid="uid://cd2p8gqkldm8n" path="res://Scenes/jogador/jogador.tscn" id="1_7jbif"]
 [ext_resource type="Script" uid="uid://wlvljbvthuag" path="res://Scenes/jogo/GameManager.gd" id="1_rnl6r"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6h13r2gqaus" path="res://Scenes/jogo/GravityZone.tscn" id="5_bppl5"]
 [ext_resource type="PackedScene" uid="uid://d3yp0tvkp3orp" path="res://Scenes/jogo/area_derrota.tscn" id="6_twpfn"]
 [ext_resource type="PackedScene" uid="uid://chaxf320k02gc" path="res://Scenes/jogo/area_vitoria.tscn" id="7_rnl6r"]
+[ext_resource type="PackedScene" uid="uid://dbqb1v5vdj1sk" path="res://Scenes/jogo/PauseManager.tscn" id="9_b1hwe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7jbif"]
 
@@ -24,29 +25,23 @@ size = Vector2(1202.6023, 613.3907)
 script = ExtResource("1_rnl6r")
 
 [node name="AreaDerrota" parent="." groups=["gerenciador"] instance=ExtResource("6_twpfn")]
-position = Vector2(4161, 894)
+position = Vector2(3255, 946)
 
-[node name="AreaDerrota" parent="AreaDerrota" instance=ExtResource("6_twpfn")]
-position = Vector2(6031, 4)
+[node name="AreaDerrota" parent="AreaDerrota" groups=["gerenciador"] instance=ExtResource("6_twpfn")]
+position = Vector2(2998, 4)
 
-[node name="AreaDerrota2" parent="AreaDerrota" instance=ExtResource("6_twpfn")]
-position = Vector2(3082, -10)
-
-[node name="AreaDerrota" parent="AreaDerrota/AreaDerrota2" instance=ExtResource("6_twpfn")]
-position = Vector2(6031, 4)
-
-[node name="AreaVitoria" parent="." instance=ExtResource("7_rnl6r")]
-position = Vector2(20822, -759)
+[node name="AreaDerrota" parent="AreaDerrota/AreaDerrota" groups=["gerenciador"] instance=ExtResource("6_twpfn")]
+position = Vector2(3133, -15)
 
 [node name="Plano de fundo" type="Sprite2D" parent="."]
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
 z_index = -1
-position = Vector2(9642.001, -410)
+position = Vector2(10508.001, -1429)
 scale = Vector2(21.857033, 13.243055)
 texture = ExtResource("2_akodo")
 
 [node name="Jogador" parent="." instance=ExtResource("1_7jbif")]
-position = Vector2(67, 536)
+position = Vector2(177, 531)
 
 [node name="piso1" type="StaticBody2D" parent="."]
 position = Vector2(961, 447)
@@ -91,7 +86,7 @@ texture = ExtResource("2_akodo")
 
 [node name="Nave" parent="." groups=["jogador"] instance=ExtResource("3_akodo")]
 z_index = 10
-position = Vector2(13622, -637)
+position = Vector2(15079, -614)
 cena_missil = ExtResource("4_h5f1k")
 
 [node name="piso4" type="StaticBody2D" parent="."]
@@ -217,7 +212,7 @@ texture = ExtResource("2_akodo")
 
 [node name="GravityZone" parent="." instance=ExtResource("5_bppl5")]
 z_index = 0
-position = Vector2(3932, 246)
+position = Vector2(4056, 37)
 
 [node name="GravityZone2" parent="GravityZone" instance=ExtResource("5_bppl5")]
 z_index = 0
@@ -225,4 +220,9 @@ position = Vector2(4650, -720)
 
 [node name="GravityZone2" parent="GravityZone/GravityZone2" instance=ExtResource("5_bppl5")]
 z_index = 0
-position = Vector2(6500, -475)
+position = Vector2(5972, -519)
+
+[node name="PauseManager" parent="." instance=ExtResource("9_b1hwe")]
+
+[node name="AreaVitoria" parent="." groups=["gerenciador", "jogador", "nave", "pause_manager"] instance=ExtResource("7_rnl6r")]
+position = Vector2(20128, -759)

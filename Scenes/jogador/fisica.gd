@@ -1,71 +1,72 @@
 extends CharacterBody2D
 
-# Parâmetros de movimento
 @export var base_speed: float = 150.0
 @export var accel_per_sec: float = 25.0
 @export var max_speed: float = 520.0
 @export var jump_speed: float = -450.0
 @export var fastfall_mult: float = 2.2
 
-# Estado interno
 var gravity: float
 var current_speed: float
-var vivo: bool = true
-var venceu: bool = false
+var vivo := true
+var venceu := false
 
 func _ready():
-	# Grava gravidade padrão do projeto
+	# Carrega gravidade padrão do projeto
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	current_speed = base_speed
 
+
 func morrer():
-	# Evita repetir evento
+	# Evita múltiplas execuções
 	if not vivo or venceu:
 		return
 
-	# Congela o jogador ao morrer
 	vivo = false
 	velocity = Vector2.ZERO
 	process_mode = PROCESS_MODE_DISABLED
 
-	# Notifica o GameManager
+	# Notifica o gerenciador global
 	get_tree().call_group("gerenciador", "jogador_morreu")
 
+
 func vencer():
-	# Evita repetir evento
+	# Evita repetição caso já tenha vencido ou morrido
 	if venceu or not vivo:
 		return
 
-	# Congela o jogador ao vencer
 	venceu = true
 	velocity = Vector2.ZERO
 	process_mode = PROCESS_MODE_DISABLED
 
-	# Notifica o GameManager
+	# Notifica o gerenciador global
 	get_tree().call_group("gerenciador", "jogador_venceu")
 
+
 func _physics_process(delta):
-	# Bloqueia movimento se morto ou vencedor
+	# Interrompe física se o jogador morrer ou vencer
 	if not vivo or venceu:
 		return
 
-	# Aceleração progressiva
+	# Aceleração horizontal progressiva
 	current_speed = min(current_speed + accel_per_sec * delta, max_speed)
 	velocity.x = current_speed
 
-	# Gravidade e queda rápida
+	# Aplicação de gravidade
 	if not is_on_floor():
 		var g := gravity
+
+		# Acelera a queda se o jogador pressionar para baixo
 		if Input.is_action_pressed("ui_down"):
 			g *= fastfall_mult
+
 		velocity.y += g * delta
 	else:
 		if velocity.y > 0:
 			velocity.y = 0
 
-	# Pulo
+	# Pulo somente no chão
 	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y = jump_speed
 
-	# Aplica movimento final
 	move_and_slide()

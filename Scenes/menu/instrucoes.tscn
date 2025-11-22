@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://bin4y6qubiaok"]
+
+[ext_resource type="Script" uid="uid://ylymn2hhufto" path="res://Scenes/menu/instrucoes.gd" id="1_j2f2d"]
+
+[node name="Instrucoes" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_j2f2d")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.067
+anchor_top = -0.056
+anchor_right = -0.067
+anchor_bottom = -0.056
+offset_left = 87.76
+offset_top = 42.32
+offset_right = 1370.76
+offset_bottom = 756.32
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 184.0
+offset_top = 19.0
+offset_right = 1094.0
+offset_bottom = 265.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 180
+text = "Instruções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = -2.0
+offset_top = 197.0
+offset_right = 1281.0
+offset_bottom = 620.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 45
+text = "	O jogo possui uma mecânica simples, basta apertar seta para cima para pular (⬆︎) ou seta para baixo para acelerar a queda (⬇︎). Pressione ESC quando desejar pausar.
+O objetivo é alcançar o final da fase desviando dos obstáculos."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Voltar" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.028
+anchor_top = -0.024
+anchor_right = 0.028
+anchor_bottom = -0.024
+offset_left = 284.16
+offset_top = 607.28
+offset_right = 888.16
+offset_bottom = 716.28
+theme_override_font_sizes/font_size = 50
+text = "Voltar ao menu"

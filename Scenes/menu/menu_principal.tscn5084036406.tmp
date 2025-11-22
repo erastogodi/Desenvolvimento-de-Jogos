@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwfqpat74mii"]
+
+[ext_resource type="Script" uid="uid://etwrjou50cue" path="res://Scenes/menu/menu_principal.gd" id="1_e60kv"]
+
+[node name="MenuPrincipal" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_e60kv")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.067
+anchor_top = -0.056
+anchor_right = -0.067
+anchor_bottom = -0.056
+offset_left = 84.76
+offset_top = 39.32
+offset_right = 1361.76
+offset_bottom = 758.32
+
+[node name="BotaoSelecionarFase" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.016
+anchor_right = 0.024
+anchor_bottom = 0.016
+offset_left = 279.28
+offset_top = 260.48
+offset_right = 949.28
+offset_bottom = 378.48
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Selecionar fase"
+
+[node name="BotaoInstrucoes" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.016
+anchor_right = 0.024
+anchor_bottom = 0.016
+offset_left = 281.28
+offset_top = 404.48
+offset_right = 952.28
+offset_bottom = 522.48
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95446366, 0.93924206, 0.99999994, 1)
+theme_override_font_sizes/font_size = 80
+text = "Instruções
+"
+
+[node name="BotaoConfiguracoes" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.016
+anchor_right = 0.024
+anchor_bottom = 0.016
+offset_left = 286.28
+offset_top = 555.48
+offset_right = 954.28
+offset_bottom = 673.48
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Configurações"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 49.0
+offset_top = -10.0
+offset_right = 1237.0
+offset_bottom = 263.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 160
+text = "Gravity Drift"
+horizontal_alignment = 1
+vertical_alignment = 1
